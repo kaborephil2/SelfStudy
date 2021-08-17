@@ -49,16 +49,16 @@ public class Person {
         return result;
     }
     
-    /*
+
     @Override
     public int hashCode() {
-        // System.out.println("Person.hashCode");
+        System.out.println("Person.hashCode");
         // this implementation is prone to hash collisions
         // Rob-33 and Ron-21 are "different" Person objects, but have the same hashcode value (dumb luck)
-        return getName().hashCode() + age;
+        //return getName().hashCode() + age;
         
         // this implementation is better at reducing hash collisions
-        // return Objects.hash(getName(), getAge());
+         return Objects.hash(getName(), getAge());
     }
-    */
+
 }
