@@ -8,8 +8,7 @@
  */
 package com.mytime;
 
-import java.time.Duration;
-import java.time.Instant;
+import java.time.*;
 
 public class PeriodDurationTest {
 
@@ -18,11 +17,11 @@ public class PeriodDurationTest {
      * To run one test method at a time, uncomment the call to the one you want to execute.
      */
     public static void main(String[] args) {
-        // testAgeDifference();
-        // testNextBirthday();
-        // testNextHalleysComet();
-        // testPerformance();
-        // testSpecialEvent();
+        testAgeDifference();
+        testNextBirthday();
+        testNextHalleysComet();
+        testPerformance();
+        testSpecialEvent();
     }
 
     /**
@@ -33,7 +32,11 @@ public class PeriodDurationTest {
      * RESULT:
      */
     public static void testAgeDifference() {
-        // TODO
+        // Done
+        LocalDate friend1 = LocalDate.of(1989,12,9);
+        LocalDate friend2 = LocalDate.of(1993, 4, 1);
+        Period ageDifference = Period.between(friend1, friend2);
+        System.out.println("Age difference is :" + ageDifference.getYears() + " year " + ageDifference.getMonths() + " Months");
     }
 
     /**
@@ -44,7 +47,14 @@ public class PeriodDurationTest {
      * RESULT: 
      */
     public static void testNextBirthday() {
-        // TODO
+        // Done
+        int year = Year.now().getValue();
+
+        LocalDate today = MonthDay.of(8,19).atYear(year);
+        LocalDate mybirthday = MonthDay.of(10, 1).atYear(year);
+
+        Period dayOfBirthday = today.until(mybirthday);
+        System.out.println("Birthday date: " + dayOfBirthday.getMonths() + " Months " + dayOfBirthday.getDays() + " days");
     }
     
     /**
@@ -56,7 +66,11 @@ public class PeriodDurationTest {
      * RESULT:
      */
     public static void testNextHalleysComet() {
-        // TODO
+        // Done
+        Period orbitDate = Period.ofYears(75);
+        Year last = Year.of(1986);
+        Year next = last.plus(orbitDate);
+        System.out.println("next appearance on Earth: " + next);
     }
     
     /**
@@ -96,7 +110,17 @@ public class PeriodDurationTest {
      * RESULT:
      */
     public static void testSpecialEvent() {
-        // TODO
+        // Done
+        Duration specialEvent = Duration.ofHours(5).plusMinutes(5).plusSeconds(5);
+        LocalDateTime lastEvent = LocalDateTime.of(2020, 2, 18,10,16,48);
+
+        LocalDateTime nextEvent = lastEvent.plus(specialEvent);
+        LocalDateTime nextEvent2 = nextEvent.plus(specialEvent);
+        LocalDateTime nextEvent3 = nextEvent2.plus(specialEvent);
+
+        System.out.println("First event: " + nextEvent);
+        System.out.println("Second event: " + nextEvent2);
+        System.out.println("Third event: " + nextEvent3);
     }
     
 
