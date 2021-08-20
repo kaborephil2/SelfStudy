@@ -8,6 +8,13 @@
  */
 package com.mytime;
 
+import java.time.DayOfWeek;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
+import static java.time.temporal.TemporalAdjusters.firstInMonth;
+import static java.time.temporal.TemporalAdjusters.nextOrSame;
+
 public class DerivedDateTimeTest {
 
     /**
@@ -15,12 +22,12 @@ public class DerivedDateTimeTest {
      * To run one test method at a time, uncomment the call to the one you want to execute.
      */
     public static void main(String[] args) {
-        // testPresidentsFirst100Days();
-        // testPopularBirthdays();
-        // testEarlyRetirement();
-        // testLaborDay();
-        // testElectionDay();
-        // testAnniversary();
+        testPresidentsFirst100Days();
+        testPopularBirthdays();
+        testEarlyRetirement();
+        testLaborDay();
+        testElectionDay();
+        testAnniversary();
     }
     
     /**
@@ -30,7 +37,10 @@ public class DerivedDateTimeTest {
      * RESULT: 
      */
     public static void testPresidentsFirst100Days() {
-        // TODO
+        // Done
+        LocalDate inaugurationDay = LocalDate.of(2017, 1, 20);
+        LocalDate president100Days = inaugurationDay.plusDays(100);
+        System.out.println("The president's 100-day deadline is: " + president100Days);
     }
 
     /**
@@ -41,9 +51,15 @@ public class DerivedDateTimeTest {
      * RESULT: 
      */
     public static void testPopularBirthdays() {
-        // TODO: what is the average birthday of someone conceived on Valentine's Day?
+        // Done: what is the average birthday of someone conceived on Valentine's Day?
+        LocalDate averageBirthday = LocalDate.of(2021, 2, 14);
+        LocalDate valentineDay = averageBirthday.plusWeeks(38);
+        System.out.println("The average birthday of someone conceived on Valentine's Day is: " +valentineDay);
         
-        // TODO: what is the average birthday of someone conceived on New Year's Eve (after midnight)?
+        // Done: what is the average birthday of someone conceived on New Year's Eve (after midnight)?
+        LocalDate newYear = LocalDate.of(2021,1,1);
+        LocalDate conceivedNewYear = newYear.plusWeeks(38);
+        System.out.println("The average birthday of someone conceived on New Year's Eve is: " + conceivedNewYear);
     }
     
     /**
@@ -54,7 +70,10 @@ public class DerivedDateTimeTest {
      * RESULT: 
      */
     public static void testEarlyRetirement() {
-        // TODO
+        // Done
+        LocalDate myBirthday = LocalDate.of(1986,10,1);
+        LocalDate retirementSavings = myBirthday.plusYears(59).plusMonths(6);
+        System.out.println("My retirement date from now is :" + retirementSavings);
     }
     
     /**
@@ -65,7 +84,10 @@ public class DerivedDateTimeTest {
      * RESULT: 
      */
     public static void testLaborDay() {
-        // TODO
+        //Done
+        LocalDate myBirthday = LocalDate.of(1986,10,1);
+        LocalDate laborDay = myBirthday.withMonth(11).with(firstInMonth(DayOfWeek.MONDAY));
+        System.out.println("The Labor day from my birth year was: " + laborDay);
     }
     
     /**
@@ -75,7 +97,10 @@ public class DerivedDateTimeTest {
      * RESULT: 
      */
     public static void testElectionDay() {
-        // TODO
+        // Done
+        LocalDate presidential = LocalDate.of(2024,11,1);
+        LocalDate electionDay = presidential.withMonth(11).with(firstInMonth(DayOfWeek.TUESDAY));
+        System.out.println("Presidential election in 2024 is: " + electionDay);
     }
     
     /**
@@ -87,6 +112,10 @@ public class DerivedDateTimeTest {
      * RESULT: 
      */
     public static void testAnniversary() {
-        // TODO
+        // Done
+        LocalDate marriageDate = LocalDate.of(1969,6,6);
+        LocalDate weddingAnniversary = marriageDate.plusYears(50);
+        LocalDate partyDay = weddingAnniversary.with(nextOrSame(DayOfWeek.SATURDAY));
+        System.out.println(" Akesh and Samantha wedding party: " + partyDay);
     }
 }
