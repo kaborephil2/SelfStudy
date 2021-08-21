@@ -30,6 +30,7 @@ public class Client {
         
         // don't get confused by the code above, it's all bogus (and the compiler warnings are spot on)
         // THIS is what you should do:
+        //Static methods should be called like this: ClassName.staticMethod();
         Animal.makeSound();
         Cat.makeSound();
     }
