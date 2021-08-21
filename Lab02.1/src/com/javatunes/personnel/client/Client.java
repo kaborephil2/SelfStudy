@@ -22,12 +22,14 @@ public class Client {
         System.out.println(dept);
         
         // add Employees to it
-        dept.addEmployee(new Employee("Jacob", Date.valueOf("1988-06-01")));
-        dept.addEmployee(new Employee("Amy",   Date.valueOf("2002-02-20")));
+//        dept.addEmployee(new Employee("Jacob", Date.valueOf("1988-06-01"))); //Employee is an abstract class now, we will not be able to instantiate it.
+//        dept.addEmployee(new Employee("Amy",   Date.valueOf("2002-02-20"))); //Employee is an abstract class now, we will not be able to instantiate it.
         
         // add HourlyEmployees and SalariedEmployees to it
         dept.addEmployee(new HourlyEmployee("Lonnie",   Date.valueOf("2015-03-31"), 35.0, 40.0));
+        dept.addEmployee(new HourlyEmployee("Lonnie",   Date.valueOf("2015-03-31"), 35.0, 40.0));
         dept.addEmployee(new HourlyEmployee("Martin",   Date.valueOf("2011-02-17"), 25.0, 20.0));
+        dept.addEmployee(new SalariedEmployee("Lauren", Date.valueOf("1997-04-08"), 50000.0));
         dept.addEmployee(new SalariedEmployee("Lauren", Date.valueOf("1997-04-08"), 50000.0));
         dept.addEmployee(new SalariedEmployee("Jason",  Date.valueOf("1990-08-24"), 34000.0));
         
@@ -39,8 +41,8 @@ public class Client {
         System.out.println("\nMake employees work:");
         dept.workEmployees();
         
-        // TODO: uncomment this after you've implemented payEmployees() in Department
-        // System.out.println("\nPay employees:");
-        // dept.payEmployees();
+        // Done: uncomment this after you've implemented payEmployees() in Department
+        System.out.println("\nPay employees:");
+        dept.payEmployees();
     }
 }

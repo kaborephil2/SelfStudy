@@ -37,11 +37,14 @@ public class Department {
     }
     
     /**
-     * TODO: implement payEmployees() method by calling pay() on each Employee
+     *  implement payEmployees() method by calling pay() on each Employee
      * it will look similar to the workEmployees() method above
      */
     public void payEmployees() {
-        // TODO
+        // Done
+        for ( Employee emp : employees) {
+            emp.pay();
+        }
     }
     
     // helper method to add an Employee to the collection
