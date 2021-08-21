@@ -9,7 +9,7 @@
 package com.javatunes.member;
 
 public class SubMember extends Member {
-  
+    // This will not work because there is no default constructor available in the super class Member.
     public SubMember() {
         // NOTE: there is a call to super() here! as the first line of code
         System.out.println("SubMember ctor");

@@ -9,8 +9,9 @@
 package com.javatunes.member;
 
 public class Member {
-  
-    public Member() {
+    // Adding a parameter name in the ctor will give a compiler error, because any class has one default ctor,
+    //if there no custom ctor.
+    public Member(String name) {
         // NOTE: there is a call to super() here! as the first line of code
         // What's the superclass of Member?  Is there a no-arg ctor in that class?
         System.out.println("Member ctor");
