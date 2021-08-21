@@ -13,4 +13,13 @@ public interface Volume {
     public int getVolume();
     public void mute();
     public boolean isMuted();
+    public default void silence() {
+        setVolume(0);
+    }
+    public static void silenceAll(Volume...vols) {
+        for (Volume v : vols) {
+            v.silence();
+        }
+    }
+
 }

@@ -32,12 +32,15 @@ public class InterfaceMethodsTest {
         
         // create instances of Volume, store in Volume[] array for convenience in testing
         // QUIZ YOURSELF: why is Television and Radio okay in this Volume[] array?
-        Volume[] volArray = { new Television("Zenith", 17), new Radio(5) };
+        Volume[] volArray = { new Television("Zenith", 17), new Radio(5),
+                              new Television("Sony", 22), new Radio(10),
+                              new Television("Samsung", 50), new Radio(12)};
+
         
         // iterate over the array, silencing each element
         for (Volume vol : volArray) {
-            // TODO: uncomment below once you add the silence() method to Volume
-            // vol.silence();
+            // Done: uncomment below once you add the silence() method to Volume
+            vol.silence();
             
             // ACTUAL TEST - make sure each element is silent
             System.out.println("volume is zero: " + (vol.getVolume() == 0));
@@ -49,8 +52,8 @@ public class InterfaceMethodsTest {
         
         Volume[] volArray = { new Television("Zenith", 17), new Radio(5) };
         
-        // TODO: uncomment below once you add the silenceAll() method to Volume
-        // Volume.silenceAll(volArray);
+        // Done: uncomment below once you add the silenceAll() method to Volume
+        Volume.silenceAll(volArray);
         
         // ACTUAL TEST - iterate over the array, testing that they are all silent
         for (Volume vol : volArray) {
